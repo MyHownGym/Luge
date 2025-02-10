@@ -3,87 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoom & Texte Survol</title>
+    <title>Effet de texte</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            font-family: Arial, sans-serif;
+            font-family: Lato; /* Police standard */
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        .typewriter-container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f4f4f4;
+            justify-content: center; /* Centre horizontalement */
+            align-items: center; /* Centre verticalement */
+            padding: 10px 0; /* Ajuste l'espace autour du texte */
         }
 
-        .image-container {
-            position: relative;
-            width: 300px;
-            height: 300px;
+        .typewriter {
+            font-size: 40px;
+            font-weight: bold; /* Texte en gras */
+            border-right: 3px solid black;
             overflow: hidden;
-            border-radius: 10px;
+            white-space: nowrap;
+            display: inline-block; /* Permet à l'élément de s'ajuster à la largeur du texte */
+            animation: typing 5s steps(30) 1s forwards, blink 0.75s step-end infinite;
         }
 
-        .zoom-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
+        @keyframes typing {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 52%; /* Le texte prend toute la largeur nécessaire */
+            }
         }
 
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);  /* Effet mat */
-            transition: opacity 0.3s ease;
-        }
-
-        .text-container {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.7); /* Fond clair pour le texte */
-            text-align: center;
-            padding: 10px 0;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .text {
-            color: black;
-            font-size: 18px;
-            font-family: Arial, sans-serif;
-            font-weight: bold;
-        }
-
-        .image-container:hover .zoom-image {
-            transform: scale(1.2);  /* Effet de zoom */
-        }
-
-        .image-container:hover .overlay {
-            opacity: 1;
-        }
-
-        .image-container:hover .text-container {
-            opacity: 1;
+        @keyframes blink {
+            50% {
+                border-color: transparent;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="image-container">
-        <img src="votre-image.jpg" alt="Image Zoom" class="zoom-image">
-        <div class="overlay"></div>
-        <div class="text-container">
-            <p class="text">CHF119,90/SÉANCE</p>
-        </div>
+    <div class="typewriter-container">
+        <div class="typewriter">Bienvenue chez My Hown Gym</div>
     </div>
+
+    <script>
+        const typewriter = document.querySelector('.typewriter');
+
+        // Fonction pour réinitialiser l'animation
+        function resetAnimation() {
+            // On réinitialise l'animation en la supprimant et en la réajoutant
+            typewriter.style.animation = 'none';
+            typewriter.offsetHeight; // Trigger reflow pour appliquer le reset
+            typewriter.style.animation = ''; // Remet l'animation initiale
+        }
+
+        // Écouter l'événement 'animationiteration' pour redémarrer l'animation
+        typewriter.addEventListener('animationiteration', resetAnimation);
+    </script>
 </body>
 </html>
