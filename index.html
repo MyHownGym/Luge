@@ -24,18 +24,18 @@
         filter: brightness(50%); /* Réduit la luminosité de l'image */
     }
 
-    /* Texte centré, pas affecté par l'effet de fond mat */
+    /* Texte centré sur l'image, positionné absolument */
     .image-container .image-text {
         position: absolute;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%); /* Centre parfaitement le texte */
+        transform: translate(-50%, -50%); /* Centre le texte */
         color: white;
         font-family: Arial, sans-serif;
         font-size: 20px;
-        visibility: hidden;  /* Cacher le texte par défaut */
-        opacity: 0;  /* Cacher le texte par défaut */
-        transition: visibility 0s, opacity 0.3s ease, transform 0.3s ease; /* Transition pour faire apparaître le texte */
+        visibility: hidden;  /* Texte caché par défaut */
+        opacity: 0;  /* Texte invisible par défaut */
+        transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour faire apparaître le texte */
     }
 
     /* Texte visible au survol */
