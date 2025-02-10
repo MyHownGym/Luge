@@ -18,10 +18,10 @@
         transition: transform 0.3s ease, filter 0.3s ease;
     }
 
-    /* Effet de zoom au survol */
+    /* Effet de zoom et surbrillance au survol */
     .image-container:hover .zoom-image {
         transform: scale(1.2); /* Zoom à 120% */
-        filter: brightness(120%); /* Surbrillance (augmentation de la luminosité) */
+        filter: brightness(120%); /* Surbrillance (luminosité augmentée) */
     }
 
     /* Texte avec fond mat qui est caché par défaut */
@@ -40,7 +40,7 @@
         transition: visibility 0s, opacity 0.3s ease; /* Transition pour faire apparaître le texte */
     }
 
-    /* Fond mat visible au survol */
+    /* Texte visible au survol */
     .image-container:hover .image-text {
         visibility: visible;
         opacity: 1;  /* Afficher le texte au survol */
