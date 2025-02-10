@@ -1,6 +1,8 @@
 <div class="image-container">
     <img src="https://raw.githubusercontent.com/myhowngym/Image-1/main/votre-image.jpg" alt="Image Zoom" class="zoom-image">
     <div class="image-text">CHF 119,90/SÉANCE</div>
+    <!-- Texte ajouté pour "Pack 5 séances" -->
+    <div class="image-pack">Pack 5 séances</div>
 </div>
 
 <style>
@@ -21,7 +23,7 @@
     /* Effet de zoom et surbrillance au survol */
     .image-container:hover .zoom-image {
         transform: scale(1.2); /* Zoom à 120% */
-        filter: brightness(120%); /* Surbrillance (luminosité augmentée) */
+        filter: brightness(120%) !important; /* Surbrillance (luminosité augmentée) */
     }
 
     /* Texte avec fond mat qui est caché par défaut */
@@ -44,5 +46,23 @@
     .image-container:hover .image-text {
         visibility: visible;
         opacity: 1;  /* Afficher le texte au survol */
+    }
+
+    /* Texte "Pack 5 séances" toujours visible */
+    .image-pack {
+        position: absolute;
+        top: 20px;  /* Décale le texte vers le haut de l'image */
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+        font-family: Arial, sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        transition: font-size 0.3s ease;  /* Transition pour l'agrandissement */
+    }
+
+    /* Agrandissement du texte au survol */
+    .image-container:hover .image-pack {
+        font-size: 30px;  /* Agrandir le texte au survol */
     }
 </style>
