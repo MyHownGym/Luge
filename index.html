@@ -9,40 +9,44 @@
         position: relative;
         width: 100%;
         max-width: 500px;
-        overflow: hidden; /* Permet de cacher l'excédent de l'image */
+        overflow: hidden;
     }
 
     /* Image qui peut être zoomée */
     .zoom-image {
         width: 100%;
-        transition: transform 0.3s ease, filter 0.3s ease; /* Transition pour le zoom et le filtre */
-        object-fit: cover; /* Assure que l'image couvre tout le conteneur sans déformation */
+        transition: transform 0.3s ease;
     }
 
-    /* Effet de zoom et fond mat au survol de l'image */
+    /* Effet de zoom au survol */
     .image-container:hover .zoom-image {
-        transform: scale(1.2); /* Zoom de l'image à 120% */
-        filter: brightness(50%); /* Réduit la luminosité de l'image */
+        transform: scale(1.2); /* Zoom à 120% */
     }
 
-    /* Texte centré sur l'image, positionné absolument */
+    /* Texte avec fond mat qui est caché par défaut */
     .image-container .image-text {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Centre le texte */
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        text-align: center;
         color: white;
         font-family: Arial, sans-serif;
         font-size: 20px;
-        visibility: hidden;  /* Texte caché par défaut */
-        opacity: 0;  /* Texte invisible par défaut */
-        transition: opacity 0.3s ease, transform 0.3s ease; /* Transition pour faire apparaître le texte */
+        visibility: hidden;  /* Cacher le texte par défaut */
+        opacity: 0;  /* Cacher le texte par défaut */
+        transition: visibility 0s, opacity 0.3s ease; /* Transition pour faire apparaître le texte */
     }
 
-    /* Texte visible au survol */
+    /* Fond mat visible au survol */
     .image-container:hover .image-text {
         visibility: visible;
         opacity: 1;  /* Afficher le texte au survol */
-        transform: translate(-50%, -50%) scale(1.1);  /* Agrandir légèrement le texte au survol */
+    }
+
+    /* Fond mat au survol */
+    .image-container:hover .zoom-image {
+        filter: brightness(50%); /* Appliquer un fond mat (réduire la luminosité) au survol */
     }
 </style>
